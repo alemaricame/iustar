@@ -1,0 +1,106 @@
+<!--
+  Generated template for the ModalConstanciaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header color="uno">
+  <ion-navbar color="uno">
+      <ion-title text-wrap style="text-align: center">CONSTANCIA DE EMPLAZAMIENTO</ion-title>
+      <ion-buttons  start>
+        <a href="tel:+52066" ><img src="../../assets/imgs/alarm.png"/></a>
+     </ion-buttons>
+  </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding style="background-color: #d9d9d9;">
+  <ion-card>
+    <ion-card-content>
+   <p> EXPEDIENTE</p>
+        <p>{{id_expediente}} / {{anio}}</p>
+        <p>JUZGADO {{juzgado}}</p>
+        <div class="mbsc-form-group-title"></div>
+        <form ng-submit="guardaSitios()">
+  
+          <ion-item text-wrap>
+              EN
+              <ion-item><ion-input placeholder="MUNICIPIO"[(ngModel)]="municipio" name="municipio"></ion-input></ion-item>
+              QUERÉTARO, SIENDO LAS <ion-icon name="clock"></ion-icon>
+              <ion-item>  
+                <ion-datetime displayFormat="HH:mm" [(ngModel)]="hora" name="hora"></ion-datetime>  
+              </ion-item> 
+              HORAS DEL DÍA <ion-icon name="calendar"></ion-icon>
+              <ion-item>
+                <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fecha" name="fecha"></ion-datetime>
+              </ion-item>  
+              EL SUSCRITO ACTUARIO DEL JUZGADO
+              <ion-item><ion-input  [(ngModel)]="juzgado"  name="juzgado"></ion-input></ion-item>
+              DE LA PRIMERA INSTANCIA CIVIL EN COMPAÑÍA DE
+              <ion-item><ion-input [(ngModel)]="abogado" name="abogado"></ion-input></ion-item>
+              EN SU CARÁCTER DE
+              <ion-item><ion-input  [(ngModel)]="caracter"  name="caracter"></ion-input></ion-item>
+              EN LA DIRECCIÓN
+               <ion-item><ion-input [(ngModel)]="direccion" name="direccion"></ion-input></ion-item>
+               DOMICILIO SEÑALADO PARA NOTIFICAR Y EMPLAZAR A
+               <ion-item><ion-input [(ngModel)]="demandado" name="demandado"></ion-input></ion-item>
+               Y CERCIORADO DE LA VERACIDAD Y EXACTITUD DEL DOMICILIO PORQUE ASÍ CONSTA EN LA NOMENCLATURA OFICIAL
+               Y ASÍ ME LO CONFIRMÓ EL PROPIO BUSCADO QUIEN SE IDENTIFICA CON
+               <ion-item><ion-input  [(ngModel)]="id"  name="id"></ion-input></ion-item>
+               CUYA FOTOGRAFÍA COINCIDE EN RASGOS CON LA PERSONA CON QUIEN ME ENTREVISTO Y ANTE QUIEN ME IDENTIFICO COMO ACTUARIO
+               CON CREDENCIAL EXPEDIDA POR EL TRIBUNAL SUPERIOR DE JUSTICIA Y PARA MAYORES DATOS, HAGO CONSTAR QUE SE TRATA DEL
+              DOMICILIO EXACTO, EL CUAL TIENE COMO CARACTERÍSTICAS LAS SIGUIENTES
+              <ion-item><ion-input  [(ngModel)]="desc_inmueble"  name="desc_inmueble"></ion-input></ion-item>
+              ACTO SEGUIDO, SOLICITO AL INTERPELADO LA EXHIBICIÓN DE DOCUMENTOS ÚTILES PARA ACREDITAR QUE ACUDO AL DOMICILIO AUTORIZADO
+              EN AUTOS Y CONTESTA:
+              <ion-item><ion-input  [(ngModel)]="contestacion"  name="contestacion"></ion-input></ion-item>
+              POR LO QUE PROCESO A NOTIFICARLE Y EMPLAZARLE EN TODOS Y CADA UNO DE SUS TÉRMINOS LEGALES, LO ORDENADO EN EL(LOS) AUTO(S)
+              DE FECHA(S)
+              <ion-item><ion-input  [(ngModel)]="fecha_asig"  name="fecha_asig"></ion-input></ion-item>
+              PARA QUE DENTRO DEL PLAZO LEGAL DE
+              <ion-item><ion-input  [(ngModel)]="plazo"  name="plazo"></ion-input></ion-item>
+              DÍAS HÁBILES DE CONTESTACIÓN DE LA DEMANDA INICIADA EN SU CONTRA Y OPONGA LAS EXCEPCIONES QUE PUDIERA HACER VALER EN SU FAVOR,
+              Y LE APERCIBO QUE EN CASO DE NO HACERLO ASÍ SE LE TENDRÁ POR
+              <ion-item><ion-input  [(ngModel)]="espacio"  name="espacio"></ion-input></ion-item>
+              RESPECTO DE LOS HECHOS CONTENIDO DE LA DEMANDA Y POR PERDIDOS SUS DERECHOS NO EJERCITADOS EN TIEMPO Y FORMA. A CONTINUACIÓN, LE
+              CORRO TRASLADO CON LAS COPIAS DE LEY DEBIDAMENTE SELLADAS Y COTEJADAS, ASÍ COMO COPIA SIMPLE DE (LOS) PROVEIDO(S) CITADO(S) SUPRALÍNEAS Y CÉDULA
+              DE EMPLAZAMIENTO, DOCUMENTOS QUE SON RECIBIDOS POR
+              <ion-item><ion-input  [(ngModel)]="doc"  name="doc"></ion-input></ion-item>
+              (A), QUIEN
+              <ion-item><ion-input  [(ngModel)]="firma"  name="firma"></ion-input></ion-item>
+              FIRMA DE RECIBIDO PARA CONSTANCIA. -DOY FE.-
+              ACTUARIO DEL JUZGADO
+              <ion-item><ion-input  [(ngModel)]="juzgado"  name="juzgado"></ion-input></ion-item>
+  
+  
+                      <ion-item>
+                          <ion-textarea rows="30" name="text" [(ngModel)]="text" autosize></ion-textarea>
+                        </ion-item>
+  
+            </ion-item>
+            <ion-item>
+                <img [src]="img" *ngIf="img" />
+                <button  style="color: black"  ion-button icon-start clear item-en (click)="sacarFoto()">   <ion-icon name="camera"></ion-icon>
+                  INE/IFE </button>
+              </ion-item>
+              <ion-item>
+                <img [src]="fotoinm" *ngIf="fotoinm" />
+                <button  style="color: black"  ion-button icon-start clear item-en (click)="sacarFoto2()">   <ion-icon name="camera"></ion-icon>
+                  INMUEBLE </button>
+              </ion-item>
+              
+              <button ion-button style="background-color: rgb(214, 154, 45)" type="submit" block (click)="guardarSitio()" (click)="reasignar()">  <ion-icon ios="ios-archive" md="md-archive"></ion-icon> GUARDAR</button>
+              
+              <button style="color: black"  ion-button icon-start clear item-en (click)="imprimir()" >  <ion-icon ios="ios-print" md="md-print"></ion-icon>
+                IMPRIMIR
+                </button>
+                <button style="color: black"  ion-button icon-start clear item-en (click)="comment()" >    <ion-icon name="add-circle"></ion-icon>
+
+                  COMENTARIOS
+                  </button>
+              </form>
+              </ion-card-content>
+              </ion-card>
+  
+  </ion-content>

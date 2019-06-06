@@ -1,0 +1,29 @@
+<ion-header color="uno">
+  <ion-navbar color="uno">
+    <ion-buttons  start>
+      <a href="tel:+52066" (click)="help()"><img src="../../assets/imgs/alarm.png"/></a>
+   </ion-buttons>
+  </ion-navbar>
+  
+</ion-header>
+
+
+<ion-content padding style="background: linear-gradient(to bottom, #1a1a1a 0%, rgba(22, 22, 22, 0.5) 75%, #0e0e0e 100%);">
+ <!--   <div style="text-align:right">
+
+    <button  ion-button clear item-en *ngIf="user.activo()" (click)="logout()"><ion-icon  name="exit"></ion-icon>Salir</button>
+  </div>
+
+-->
+  <div  style="text-align: center" *ngIf="user.activo()" (click)="logout()">
+      <ion-card text-wrap style="text-align: center">
+        <ion-item style="text-align: center">
+          <ion-icon  name="exit"></ion-icon>
+          <button clear item-en  style="background: white">
+              SALIR
+          </button>
+            </ion-item>
+          </ion-card>
+        </div>
+  </ion-content>
+

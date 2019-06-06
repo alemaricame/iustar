@@ -1,0 +1,116 @@
+<!--
+  Generated template for the CitatorioPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="uno">
+    <ion-title color="uno">CITATORIO</ion-title>
+    <ion-buttons  start>
+      <a href="tel:+52066" ><img src="../../assets/imgs/alarm.png"/></a>
+   </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding style="background-color: #d9d9d9;">
+<ion-card>
+<form [formGroup]="formularioCitatorio" (ngSubmit)="guardar()" novalidate padding>
+  <ion-card>
+    C. <ion-input  [(ngModel)]="demandado" formControlName="c" type="text" placeholder="ESCRIBE AQUÍ" name="c"> </ion-input>
+    <ion-item *ngIf="formularioCitatorio.get('c').errors && formularioCitatorio.get('c').dirty">
+    <p style="color: red"*ngIf="formularioCitatorio.get('c').hasError('required')" class="error">
+        <strong>CAMPO REQUERIDO</strong>    
+      </p>
+  </ion-item>
+  DOMICILIO <ion-input [(ngModel)]="domicilio"  formControlName="domicilio" type="text" placeholder="ESCRIBE AQUÍ" name="domicilio"> </ion-input>
+  <ion-item *ngIf="formularioCitatorio.get('domicilio').errors && formularioCitatorio.get('domicilio').dirty">
+  <p style="color: red"*ngIf="formularioCitatorio.get('domicilio').hasError('required')" class="error">
+      <strong>CAMPO REQUERIDO</strong>
+  </p>
+</ion-item>
+
+</ion-card>
+<div class="mbsc-form-group-title">PRESENTE</div>
+
+<ion-card>
+    PARA LA PRÁCTICA DE UNA DILIGENCIA DE CARÁCTER LEGAL SE SERVIRÁ(N) ESPERAR AL SUSCRITO MINISTRO EJECUTOR EN ESTE, SU DOMICILIO A LAS
+      <ion-datetime displayFormat="HH:mm:ss" formControlName="horacita"  placeholder="SELECCIONA LA HORA" name="horacita"></ion-datetime>
+      <ion-item *ngIf="formularioCitatorio.get('horacita').errors && formularioCitatorio.get('horacita').dirty">
+          <p style="color: red"*ngIf="formularioCitatorio.get('horacita').hasError('required')" class="error">
+              <strong>CAMPO REQUERIDO</strong>    
+            </p>
+        </ion-item>
+      HORAS DEL DÍA 
+      <ion-datetime displayFormat="DD" formControlName="fechacita"  placeholder="SELECCIONA LA FECHA" name="fechacita"></ion-datetime>
+      <ion-item *ngIf="formularioCitatorio.get('fechacita').errors && formularioCitatorio.get('fechacita').dirty">
+          <p style="color: red"*ngIf="formularioCitatorio.get('fechacita').hasError('required')" class="error">
+              <strong>CAMPO REQUERIDO</strong>    
+            </p>
+        </ion-item>
+        DE 
+        <ion-datetime displayFormat="MM" formControlName="fechacita"  placeholder="SELECCIONA LA FECHA" name="fechacita"></ion-datetime>
+        <ion-item *ngIf="formularioCitatorio.get('fechacita').errors && formularioCitatorio.get('fechacita').dirty">
+            <p style="color: red"*ngIf="formularioCitatorio.get('fechacita').hasError('required')" class="error">
+                <strong>CAMPO REQUERIDO</strong>    
+              </p>
+          </ion-item>
+<br>
+<strong>EN CASO DE NO ESPERAR CON FUNDAMENTO EN EL ARTÍCULO 119 REFORMADO DEL CÓDIGO DE PROCEDIMIENTOS CIVILES QUE ESTABLECE; QUE SE DEJARÁ CITATORIO PARA EL DÍA SIGUIENTE HÁBIL Y SI NO SE ENCONTRARE PERSONA ALGUNA EN EL DOMICILIO O HABIÉNDOLA SE NIEGUE A RECIBIR LA CÉDULA, EL ACTUARIO PODRÁ FIJARLA EN LUGAR VISIBLE DEL DOMICILIO, . . .</strong>
+<br>
+EN VIRTUD DE NO HABERLO (S) ENCONTRADO, DEJO PARA USTED (ES) ESTE CITATORIO CON PERSONA QUE A SIMPLE VISTA ES MAYOR DE EDAD
+<ion-input formControlName="valor1" type="text" placeholder="ESCRIBE AQUÍ" name="valor1"></ion-input>
+<ion-item *ngIf="formularioCitatorio.get('valor1').errors && formularioCitatorio.get('valor1').dirty">
+    <p style="color: red"*ngIf="formularioCitatorio.get('valor1').hasError('required')" class="error">
+        <strong>CAMPO REQUERIDO</strong>
+    </p>
+</ion-item>
+DIJO SER
+<ion-input formControlName="valor2" type="text" placeholder="ESCRIBE AQUÍ" name="valor2"></ion-input>
+<ion-item *ngIf="formularioCitatorio.get('valor2').errors && formularioCitatorio.get('valor2').dirty">
+    <p style="color: red" *ngIf="formularioCitatorio.get('valor2').hasError('required')" class="error">
+        <strong>CAMPO REQUERIDO</strong>
+    </p>
+</ion-item>
+A QUIEN LE SOLICITO UNA IDENTIFICACIÓN 
+<ion-input formControlName="valor3" type="text" placeholder="ESCRIBE AQUÍ" name="valor3"></ion-input>
+<ion-item *ngIf="formularioCitatorio.get('valor3').errors && formularioCitatorio.get('valor3').dirty">
+    <p style="color: red" *ngIf="formularioCitatorio.get('valor3').hasError('required')" class="error">
+        <strong>CAMPO REQUERIDO</strong>
+    </p>
+</ion-item>
+DEJANDO EL PRESENTE CITATORIO A LAS {{hora}}
+HORAS
+<br>
+SIENDO LOS SIGNOS EXTERIORES DEL INMUEBLE DONDE ESTOY CONSTITUIDO LOS SIGUIENTES;
+<ion-input formControlName="valor4" type="text" placeholder="ESCRIBE AQUÍ" name="valor4"></ion-input>
+<ion-item *ngIf="formularioCitatorio.get('valor4').errors && formularioCitatorio.get('valor4').dirty">
+    <p style="color: red" *ngIf="formularioCitatorio.get('valor4').hasError('required')" class="error">
+        <strong>CAMPO REQUERIDO</strong>
+    </p>
+</ion-item>
+
+
+<ion-item>
+    <img [src]="img" *ngIf="img" />
+    <button  style="color: black"  ion-button icon-start clear item-en (click)="sacarFoto()">   <ion-icon name="camera"></ion-icon>
+      INE/IFE </button>
+  </ion-item>
+  <ion-item>
+    <img [src]="fotoinm" *ngIf="fotoinm" />
+    <button  style="color: black"  ion-button icon-start clear item-en (click)="sacarFoto2()">   <ion-icon name="camera"></ion-icon>
+      INMUEBLE </button>
+  </ion-item>
+
+</ion-card>
+<button style="color: black"  ion-button icon-start clear item-en (click)="comment()" >   <ion-icon name="add-circle"></ion-icon>
+
+    COMENTARIOS
+    </button>
+    <button ion-button block type="submit" [disabled]="!formularioCitatorio.valid">GUARDAR</button>
+
+  </form>
+</ion-card>
+  </ion-content>

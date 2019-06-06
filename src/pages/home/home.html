@@ -1,0 +1,72 @@
+<ion-header style="background: black">
+  <ion-navbar color="uno">
+     <ion-title>
+        LISTA DE DILIGENCIAS
+     </ion-title>
+     <ion-buttons  start>
+       <a href="tel:+52066" ><img src="../../assets/imgs/alarm.png"/></a>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background: linear-gradient(to bottom, #1a1a1a 0%, rgba(22, 22, 22, 0.5) 75%, #0e0e0e 100%);">
+
+  <ion-refresher style="background: white" *ngIf="user.activo()"  (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content color="white"
+      pullingIcon="arrow-round-up"
+      pullingText="SUELTA PARA REFRESCAR"
+      refreshingSpinner="ios-small"
+      refreshingText="REFRESCANDO">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+
+<ion-list >
+<div *ngFor="let item of items" >
+  <ion-card text-wrap> 
+      <ion-item *ngIf="item.status!=='Finalizado'"(click)="viewEntry({record:item})"> 
+          <div class="row">
+          <div class="col">
+              <h2><strong>{{item.id_expediente}} / {{item.anio}}</strong></h2>
+              <p>{{item.direccion}}</p>
+
+            <ion-badge item-end *ngIf="item.status=='Citatorio'" color='danger'>{{item.status}}</ion-badge>
+            <ion-badge item-end *ngIf="item.status=='Asignado'"color='asignado'>{{item.status}}</ion-badge>
+            <ion-badge item-end *ngIf="item.status=='Proceso'" color='yellow'>{{item.status}}</ion-badge>
+            <ion-badge item-end *ngIf="item.status=='Inicio'" color='secondary'>{{item.status}}</ion-badge>
+            <ion-badge item-end *ngIf="item.status=='Finalizado'" color='Finalizado' >{{item.status}}</ion-badge>
+
+          </div>
+        <div>
+          <img src="../../assets/imgs/notepad.png"/>
+        </div>
+    
+      </div>
+      </ion-item>
+
+      <ion-item *ngIf="item.status=='Finalizado'" style="pointer-events: none;" readonly> 
+        <div class="row">
+        <div class="col">
+            <h2><strong>{{item.id_expediente}} / {{item.anio}}</strong></h2>
+            <p>{{item.direccion}}</p>
+
+          <ion-badge item-end *ngIf="item.status=='Citatorio'" color='danger'>{{item.status}}</ion-badge>
+          <ion-badge item-end *ngIf="item.status=='Asignado'"color='asignado'>{{item.status}}</ion-badge>
+          <ion-badge item-end *ngIf="item.status=='Proceso'" color='yellow'>{{item.status}}</ion-badge>
+          <ion-badge item-end *ngIf="item.status=='Inicio'" color='secondary'>{{item.status}}</ion-badge>
+          <ion-badge item-end *ngIf="item.status=='Finalizado'" color='Finalizado' >{{item.status}}</ion-badge>
+
+        </div>
+      <div>
+        <img src="../../assets/imgs/notepad.png"/>
+      </div>
+  
+    </div>
+    </ion-item>
+    </ion-card>
+  </div>
+
+</ion-list>
+</ion-content>
+

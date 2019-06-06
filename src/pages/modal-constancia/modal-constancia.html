@@ -1,0 +1,94 @@
+<!--
+  Generated template for the ModalConstanciaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header color="uno">
+  <ion-navbar color="uno">
+      <ion-title>CONSTANCIA</ion-title>
+      <ion-buttons  start>
+        <a href="tel:+52066" ><img src="../../assets/imgs/alarm.png"/></a>
+     </ion-buttons>
+  </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding style="background-color: #d9d9d9;">
+<ion-card>
+  <ion-card-content>
+ <p> EXPEDIENTE</p>
+      <p>{{id_expediente}} / {{anio}}</p>
+      <p>JUZGADO {{juzgado}}</p>
+      <div class="mbsc-form-group-title"></div>
+      <form ng-submit="guardaSitios()">
+
+      <ion-item>
+      <ion-label>CONSTANCIA</ion-label>
+        <ion-select [(ngModel)]="tipo"  name="value">
+            <ion-option value="NODOMICILIO">NO DOMICILIO</ion-option>
+            <ion-option value="NORESIDENCIA">NO RESIDENCIA</ion-option>
+            <ion-option value="OTRO">OTRO</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <div padding *ngIf="tipo==('OTRO')">
+            <ion-list>
+                <ion-item>
+                    <ion-label>ESPECIFIQUE</ion-label>
+                    <ion-input  [(ngModel)]="otro" name="otro"></ion-input>>
+                </ion-item>
+              </ion-list>
+        </div>
+
+        <ion-item text-wrap>
+            EN EL
+            <ion-item><ion-input  placeholder="MUNICIPIO"[(ngModel)]="municipio" name="municipio"></ion-input></ion-item>
+            QUERÉTARO, SIENDO LAS <ion-icon name="clock"></ion-icon>
+            <ion-item placeholder="PRESIONA AQUÍ">  
+              <ion-datetime displayFormat="HH:mm" [(ngModel)]="hora" name="hora"></ion-datetime>  
+            </ion-item>   
+            HORAS DEL DÍA <ion-icon name="calendar"></ion-icon>
+            <ion-item placeholder="PRESIONA AQUÍ">
+              <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fecha" name="fecha"></ion-datetime>
+            </ion-item>
+            EL SUCRITO ACTUARIO DEL JUZGADO
+            <ion-item><ion-input  [(ngModel)]="juzgado"  name="juzgado"></ion-input></ion-item>
+            DE LA PRIMERA INSTANCIA CIVIL EN COMPAÑÍA DE
+            <ion-item><ion-input [(ngModel)]="abogado" name="abogado"></ion-input></ion-item>
+             BUSCA EN EL DOMICILIO UBICADO EN
+             <ion-item><ion-input [(ngModel)]="direccion" name="direccion"></ion-input></ion-item>
+             EN BUSCA DE <ion-item><ion-input [(ngModel)]="demandado" name="demandado"></ion-input></ion-item>
+              Y CERCIORADA DE LA EXACTITUD DEL DOMICILIO SEÑALADO EN AUTOS Y SIENDO ESTE EL CORRECTO, POR ASÍ CONSTAR EN SU NOMENCLATURA. <br>
+                    HACIENDO CONSTAR QUE:
+                    <ion-item>
+                        <ion-textarea placeholder="ESCRIBE AQUÍ" rows="30" name="text" [(ngModel)]="text" autosize></ion-textarea>
+                      </ion-item>
+
+          </ion-item>
+          <ion-item>
+              <img [src]="img" *ngIf="img" />
+              <button  style="color: black"  ion-button icon-start clear item-en (click)="sacarFoto()">   <ion-icon name="camera"></ion-icon>
+                INE/IFE </button>
+            </ion-item>
+            <ion-item>
+              <img [src]="fotoinm" *ngIf="fotoinm" />
+              <button  style="color: black"  ion-button icon-start clear item-en (click)="sacarFoto2()">   <ion-icon name="camera"></ion-icon>
+                INMUEBLE </button>
+            </ion-item>
+            
+            <button ion-button style="background-color: rgb(214, 154, 45)" type="submit" block (click)="guardarSitio()" (click)="reasignar()">  <ion-icon ios="ios-archive" md="md-archive"></ion-icon> GUARDAR</button>
+            
+            <button style="color: black"  ion-button icon-start clear item-en (click)="imprimir()" >  <ion-icon ios="ios-print" md="md-print"></ion-icon>
+              IMPRIMIR
+              </button>
+              <button style="color: black"  ion-button icon-start clear item-en (click)="comment()" >    <ion-icon name="add-circle"></ion-icon>
+
+                COMENTARIOS
+                </button>
+            </form>
+            </ion-card-content>
+            </ion-card>
+
+</ion-content>

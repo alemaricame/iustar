@@ -1,0 +1,68 @@
+<ion-header color="uno">
+  <ion-navbar color="uno">
+    <ion-buttons  start>
+      <a href="tel:+52066" (click)="help()"><img src="../../assets/imgs/alarm.png"/></a>
+   </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<br><br><br>
+<ion-scroll scrollX="true"></ion-scroll>
+<ion-content style="background-image: url('../../assets/imgs/note2.jpg')" >
+
+<div [formGroup]="form">
+  <ion-card style="background-color: transparent;">
+    <div >
+      <ion-item style="background-color: transparent;">
+        <h2 style="text-align: center"><strong>DETALLES DE DILIGENCIA</strong></h2><br>
+      </ion-item>
+      <div class="row">
+   
+        <div class="col" style="padding: 0 5rem;">
+                
+                <h2><strong>EXPEDIENTE</strong></h2>
+              <p>{{id_expediente}} / {{anio}}</p>
+        
+                  <h2><strong>FECHA DE ASIGNACIÓN</strong></h2>
+                <p>{{fecha_asig}}</p>
+                  <h2><strong>TIPO DE JUICIO</strong></h2>
+                  <p>{{tipo_juicio}}</p>
+        
+                      <h2><strong>SUERTE PRINCIPAL</strong></h2>
+                    <p>{{ suerte_principal }}</p>
+        
+                      <h2><strong>NOMBRE DEL DEMANDADO</strong></h2>
+                    <p>{{demandado}}</p>
+        
+        
+                      <h2><strong>DIRECCIÓN</strong></h2>
+                    <p text-wrap>{{direccion}}</p><br>
+                    <h2><strong>COMENTARIOS</strong></h2>
+                    <p text-wrap>{{msg_comentarios}}</p><br>
+                  
+        </div>
+      </div>
+    </div>
+          <div style="text-align: center">
+
+          <button ion-button icon-start clear item-end id="ruta" (click)="calculateAndDisplay_Route()">
+              <ion-icon name="navigate"></ion-icon>
+              RUTA
+            </button>
+            <button ion-button icon-start clear item-end (click)="google()">
+              <ion-icon name="navigate"></ion-icon>
+              GOOGLE MAPS
+            </button>
+            <button ion-button icon-start clear item-end (click)="viewEntry()">
+              Atender
+            </button>
+          </div>
+      <div #map id="map" style="height: 60rem;background-color: rgba(2, 2, 2, 0.283);"></div>
+      <div #directionsPanel style="border-radius: 10px;"></div>
+
+    </ion-card>
+
+</div>
+  </ion-content>
+

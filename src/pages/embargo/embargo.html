@@ -1,0 +1,101 @@
+<!--
+  Generated template for the EmbargoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header color="uno">
+    <ion-navbar color="uno">
+      <ion-title>EMBARGO</ion-title>
+      <ion-buttons  start>
+        <a href="tel:+52066" ><img src="../../assets/imgs/alarm.png"/></a>
+     </ion-buttons>
+  </ion-navbar>
+  </ion-header>
+
+  <ion-content padding style="background-color: #d9d9d9;">
+      <ion-card>
+          <ion-card-content>
+
+  <div class="mbsc-form-group-title" stacked><strong>EMBARGO PRECATORIO Y EMPLAZAMIENTO</strong> </div>
+  <p> EXPEDIENTE</p>
+  <p>{{id_expediente}} / {{anio}} </p>
+  <p>JUZGADO {{juzgado}}</p>
+  <form ng-submit="guardaSitios()">
+
+
+EN EL
+<ion-item><ion-input placeholder="MUNICIPIO" [(ngModel)]="municipio" name="municipio"></ion-input></ion-item>
+QUERÉTARO, SIENDO LAS <ion-icon name="clock"></ion-icon>
+<ion-item placeholder="PRESIONA AQUÍ">  
+  <ion-datetime  displayFormat="HH:mm" [(ngModel)]="hora" name="hora"></ion-datetime>  
+</ion-item>   
+HORAS DEL DÍA <ion-icon name="calendar"></ion-icon>
+<ion-item placeholder="PRESIONA AQUÍ">
+  <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fecha" name="fecha"></ion-datetime>
+</ion-item>
+EL SUSCRITO ACTUARIO DEL JUZGADO
+<ion-item><ion-input  [(ngModel)]="juzgado" name="juzgado"></ion-input></ion-item>
+DE PRIMERA INSTANCIA CIVIL EN COMPAÑÍA DE
+<ion-item><ion-input placeholder="NOMBRE" [(ngModel)]="abogado" name="abogado"></ion-input></ion-item>
+EN SU CARÁCTER DE
+<ion-item><ion-input  [(ngModel)]="caracter" name="caracter"></ion-input></ion-item>
+QUIEN SE IDENTIFICA CON
+<ion-item><ion-input [(ngModel)]="identificacion" name="identificacion"></ion-input></ion-item>
+ME CONSTITUYO EN
+<ion-item><ion-input [(ngModel)]="direccion" name="direccion"></ion-input></ion-item>
+EN BUSCA DE <ion-item><ion-input [(ngModel)]="demandado" name="demandado"></ion-input></ion-item>
+EN SU CARÁCTER DE PARTE DEMANDADA Y CERCIORADA DE LA VERACIDAD Y EXACTITUD DEL DOMICILIO
+POR LA NOMENCLATURA EXTERIOR DEL MISMO POR LOS SIGUIETES MEDIOS O SIGNOS EXTERIORES
+DEL INMUEBLE QUE ES DE <ion-item><ion-input   [(ngModel)]="nplantas"  name="nplantas"></ion-input></ion-item>
+PLANTA(S), FACHADA DE COLOR
+<ion-item><ion-input [(ngModel)]="fachada_color" name="fachada_color"></ion-input></ion-item>,
+PUERTA DE ACCESO DE COLOR     <ion-item><ion-input [(ngModel)]="puerta_color" name="puerta_color"></ion-input></ion-item>
+ASIMISMO POR EL DICHO DE QUIEN DIJO LLAMARSE     <ion-item><ion-input [(ngModel)]="nom" name="nom"></ion-input></ion-item>
+CON LA IDENTIFICACIÓN     <ion-item><ion-input [(ngModel)]="id" name="id"></ion-input></ion-item>
+<BR>
+  EXPEDIDA POR <ion-item><ion-input [(ngModel)]="exp" name="exp"></ion-input></ion-item>
+  A LA CUAL TENGO A LA VISTA Y SU MEDIO DE FILIACIÓN COINCIDE CON LA FOTOGRAFÍA QUE OBRE EN LA MISMA
+  Y
+  ASIMISMO LE SOLICITO AL INTERPE... (A) LA EXHIBICIÓN DE DOCUMENTOS QUE SIRVAN PARA ACREDITAR QUE DONDE ACUDO ES EL DOMICILIO
+  AUTORIZADO EN AUTOS Y ANTE LO CUAL CONTESTA QUE NO TIENE NINGUNO A LA MANO Y NO ES NECESARIO PORQUE ME ENCUENTRO EN EL DOMICILIO
+  CORRECTO, PERSONA ANTE QUIEN ME IDENTIFICO DEBIDAMENTE COMO ACTUARIO ADSCRITO MEDIANTE CREDENCIAL DEL TRIBUNAL SUPERIOR
+  DE JUSTICIA EN EL ESTADO, VIGENTE, EN CUMPLIMIENTO DE LO DISPUESTO POR EL ARTÍCULO 116 DE LA LEY ADJETIVA CIVIL VIGENTE PARA EL ESTADO, PROCEDO A
+  ENTENDER LA DILIGENCIA CON DICHA PERSONA A QUIEN LE HAGO SABER EL OBJETO DE LA MISMA MEDIANTE LA LECTURA INTEGRA
+  DEL AUTO EMITIDO POR EL JUZGADO DE ORIGEN DE LA FECHA <ion-icon name="calendar"></ion-icon>
+  <ion-item placeholder="PRESIONA AQUÍ">
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fecha_emision" name="fecha_emision"></ion-datetime>
+  </ion-item>
+  Y PROCEDO A EMBARGAR BIENES POR LA CANTIDAD DE <ion-item><ion-input [(ngModel)]="cant" name="cant"></ion-input></ion-item>
+  POR CONCEPTO DE SUERTE PRINCIPAL ANTE LO CUAL MANIFIESTA QUE:
+<ion-textarea placeholder="ESCRIBE AQUÍ" rows= "50" [(ngModel)]="text" name="text" autosize>
+
+</ion-textarea>
+
+<ion-item>
+    <img [src]="img" *ngIf="img" />
+    <button  style="color: black"  ion-button icon-start clear item-en (click)="sacarFoto()">   <ion-icon name="camera"></ion-icon>
+      INE/IFE </button>
+  </ion-item>
+  <ion-item>
+    <img [src]="fotoinm" *ngIf="fotoinm" />
+    <button  style="color: black"  ion-button icon-start clear item-en (click)="sacarFoto2()">   <ion-icon name="camera"></ion-icon>
+      INMUEBLE </button>
+  </ion-item>
+  
+  <button ion-button style="background-color: rgb(214, 154, 45)" type="submit" block (click)="guardarSitio()" (click)="reasignar()">  <ion-icon ios="ios-archive" md="md-archive"></ion-icon> GUARDAR</button>
+  
+  <button style="color: black"  ion-button icon-start clear item-en (click)="imprimir()" >  <ion-icon ios="ios-print" md="md-print"></ion-icon>
+    IMPRIMIR
+    </button>
+    <button style="color: black"  ion-button icon-start clear item-en (click)="comment()" >   <ion-icon name="add-circle"></ion-icon>
+
+      COMENTARIOS
+      </button>
+    </form>
+  </ion-card-content>
+  </ion-card>
+</ion-content>
+
+

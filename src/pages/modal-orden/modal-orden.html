@@ -1,0 +1,79 @@
+<ion-header color="uno">
+  <ion-navbar color="uno">
+    <ion-title>
+       ORDEN
+    </ion-title>
+    <ion-buttons  start>
+      <a href="tel:+52066" (click)="help()"><img src="../../assets/imgs/alarm.png"/></a>
+   </ion-buttons>
+ </ion-navbar>
+
+
+  </ion-header>
+
+
+  <ion-content padding style="background: linear-gradient(to bottom, #1a1a1a 0%, rgba(22, 22, 22, 0.5) 75%, #0e0e0e 100%);">
+      <ion-list>
+      <ion-item>
+        <ion-label>TIPO DE ORDEN</ion-label>
+        <ion-select [(ngModel)]="demoSelectBox">
+          <ion-option text-wrap value="NOTIFICACIONES">NOTIFICACIONES</ion-option>
+          <ion-option text-wrap value="EJECUCIONES">EJECUCIONES</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+
+  <div id="NOTIFICACION" *ngIf="demoSelectBox==('NOTIFICACIONES')">
+  <div padding *ngIf="demoSelectBox==('NOTIFICACIONES')">
+      <ion-list>
+          <ion-item>
+            <ion-label text-wrap>SELECCIONA LA NOTIFICACIÓN</ion-label>
+            <ion-select [(ngModel)]="notificacion" >
+              <ion-option value="1">EMPLAZAMIENTO</ion-option>
+              <ion-option text-wrap value="2">NOTIFICACIÓN SIMPLE</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+  </div>
+  <div style="text-align: center" padding *ngIf="notificacion==('1')">
+    <button ion-button type="submit" (click)="emplazamiento()" style="background-color: rgb(214, 154, 45)" >LLENAR FORMULARIO DE EMPLAZAMIENTO</button>
+  </div>
+</div>
+
+  <div id="EJECUCION" *ngIf="demoSelectBox==('EJECUCIONES')">
+    <div padding *ngIf="demoSelectBox==('EJECUCIONES')">
+        <ion-list>
+            <ion-item>
+              <ion-label text-wrap>SELECCIONA LA EJECUCIÓN</ion-label>
+              <ion-select [(ngModel)]="ejecucion" >
+                <ion-option value="1">SEPARACIÓN DE CUERPOS</ion-option>
+                <ion-option value="2">CATEO</ion-option>
+                <ion-option value="3">APREHENSIÓN</ion-option>
+                <ion-option  value="4">EMBARGO</ion-option>
+                <ion-option value="5">LANZAMIENTO</ion-option>
+                <ion-option value="6">OTRO</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+      </div>
+      <div padding *ngIf="ejecucion==('6')">
+          <ion-list>
+              <ion-item>
+                  <ion-label>ESPECIFIQUE</ion-label>
+                  <ion-input></ion-input>>
+              </ion-item>
+            </ion-list>
+      </div>
+     
+      <div padding  style="text-align: center" *ngIf="ejecucion==('4')" >
+        <button ion-button type="submit" (click)="embargo()" style="background-color: rgb(214, 154, 45)" >LLENAR FORMULARIO DE EMBARGO</button>
+      </div>
+
+
+ 
+    </div>
+  <ion-card>
+
+  </ion-card>
+  </ion-content>
